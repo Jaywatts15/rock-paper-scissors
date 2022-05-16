@@ -25,10 +25,6 @@ let ties = 0
 let playerWins = 0
 let computerWins = 0
 
-// Takes two parameters (playerSelection and computerSelection)
-// and returns a string that declares the winner of the round
-// Take player input and compare to computerSelection
-
 // Helper functions for easier readability of playRound function
 
 function playRock() {
@@ -95,6 +91,9 @@ function playScissors() {
 };
 
 // Main Function
+// Takes two parameters (playerSelection and computerSelection)
+// and returns a string that declares the winner of the round
+
 
 function playRound() {
   computerPlay();
