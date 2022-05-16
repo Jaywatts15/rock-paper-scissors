@@ -4,11 +4,12 @@ const array = ["Rock", "Paper", "Scissors"]
 
 function computerPlay() {
   let randInt = Math.floor(Math.random() * (2 + 1));
-  let computerSelection = array[randInt]
-  console.log(computerSelection);
+  window.computerSelection = array[randInt]
 }
 
 computerPlay()
+
+console.log(computerSelection);
 
 // Takes two parameters (playerSelection and computerSelection)
 // and returns a string that declares the winner of the round
