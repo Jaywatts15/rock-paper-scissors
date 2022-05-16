@@ -2,25 +2,35 @@
 // plays with the computer
 
 const array = ["rock", "paper", "scissors"];
+let computerSelection = ""
 
 // randomly returns 'Rock' 'Paper' or 'Scissors'
 function computerPlay() {
   let randInt = Math.floor(Math.random() * (2 + 1));
-  window.computerSelection = array[randInt]; //Global variable
+  computerSelection = array[randInt];
+  return computerSelection;
 };
-computerPlay();
-console.log(computerSelection);
+
 
 // collects player input
-let playerInput = prompt("Rock, paper, or scissors?");
-let playerSelection = playerInput.toLowerCase();
+let playerInput = ""
+let playerSelection = ""
 
 // Takes two parameters (playerSelection and computerSelection)
 // and returns a string that declares the winner of the round
 // Take player input and compare to computerSelection
 
-function playRound(playerSelection, computerSelection) {
+function playRound() {
+  computerPlay();
+
+  console.log(computerSelection);
+
+  playerInput = prompt("Rock, paper, or scissors?");
+
+  playerSelection = playerInput.toLowerCase();
+
   switch (playerSelection) {
+    // If player chooses rock
     case "rock":
       switch (computerSelection) {
         case "rock":
@@ -36,6 +46,7 @@ function playRound(playerSelection, computerSelection) {
           console.log("Error. Try Again.");
       }
       break;
+      // If player chooses paper
     case "paper":
       switch (computerSelection) {
         case "rock":
@@ -51,6 +62,7 @@ function playRound(playerSelection, computerSelection) {
           console.log("Error. Try Again.");
       }
       break;
+      // if player chooses scissors
     case "scissors":
       switch (computerSelection) {
         case "rock":
@@ -71,4 +83,12 @@ function playRound(playerSelection, computerSelection) {
   }
 };
 
-console.log(playRound(playerSelection, computerSelection));
+//  Function to play 5 rounds of the game
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playRound(window.playerSelection, computerSelection)
+  }
+}
+
+console.log(game());
