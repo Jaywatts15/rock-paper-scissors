@@ -1,7 +1,7 @@
 // Create a rock paper scissors game in which the user
 // plays with the computer
 
-const array = ["Rock", "Paper", "Scissors"];
+const array = ["rock", "paper", "scissors"];
 
 // randomly returns 'Rock' 'Paper' or 'Scissors'
 function computerPlay() {
@@ -20,5 +20,31 @@ let playerSelection = playerInput.toLowerCase();
 // Take player input and compare to computerSelection
 
 function playRound(playerSelection, computerSelection) {
-  pass
+  if (playerSelection === "rock") {
+    if (computerSelection === "paper") {
+      console.log("You Lose! Paper beats Rock!");
+    } else if (computerSelection === "scissors") {
+      console.log("You Win! Rock beats scissors!");
+    } else if (computerSelection === "rock") {
+      console.log("It's a tie!");
+    }
+  } else if (playerSelection === "paper") {
+    if (computerSelection === "scissors") {
+      console.log("You Lose! Scissors beats Paper!");
+    } else if (computerSelection === "rock") {
+      console.log("You Win! Paper beats Rock!");
+    } else if (computerSelection === "paper") {
+      console.log("It's a tie!");
+    }
+  } else if (playerSelection === "scissors") {
+    if (computerSelection === "rock") {
+      console.log("You Lose! Rock beats Scissors!");
+    } else if (computerSelection === "Paper") {
+      console.log("You Win! Scissors beats Paper!");
+    } else if (computerSelection === "scissors") {
+      console.log("It's a tie!");
+    }
+  }
 };
+
+console.log(playRound(playerSelection, computerSelection));
