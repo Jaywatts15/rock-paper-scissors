@@ -21,6 +21,10 @@ let wins = 0
 let losses = 0
 let ties = 0
 
+// Final Scores
+let playerWins = 0
+let computerWins = 0
+
 // Takes two parameters (playerSelection and computerSelection)
 // and returns a string that declares the winner of the round
 // Take player input and compare to computerSelection
@@ -43,10 +47,12 @@ function playRound() {
         case "paper":
           console.log("You Lose! Paper beats Rock!");
           losses = losses + 1
+          computerWins = computerWins + 1
           break;
         case "scissors":
           console.log("You Win! Rock beats Scissors!");
           wins = wins + 1
+          playerWins = playerWins + 1
           break;
         default:
           console.log("Error. Try Again.");
@@ -58,6 +64,7 @@ function playRound() {
         case "rock":
           console.log("You Win! Paper beats Rock!");
           wins = wins + 1
+          playerWins = playerWins + 1
           break;
         case "paper":
           console.log("It's a Tie!");
@@ -66,6 +73,7 @@ function playRound() {
         case "scissors":
           console.log("You Lose! Scissors beat Paper!");
           losses = losses + 1
+          computerWins = computerWins + 1
           break;
         default:
           console.log("Error. Try Again.");
@@ -77,10 +85,12 @@ function playRound() {
         case "rock":
           console.log("You Lose! Rock beats Scissors!");
           losses = losses + 1
+          computerWins = computerWins + 1
           break;
         case "paper":
           console.log("You Win! Scissors beat Paper!");
           wins = wins + 1
+          playerWins = playerWins + 1
           break;
         case "scissors":
           console.log("It's a Tie!");
@@ -97,15 +107,18 @@ function playRound() {
 
 //  Function to play 5 rounds of the game
 
-
-
 function game() {
   for (let i = 0; i < 5; i++) {
     playRound(playerSelection, computerSelection)
   }
-  console.log("Wins: " + wins);
-  console.log("Losses: " + losses);
-  console.log("Ties: " + ties);
+  // message like: You win with x wins, y losses and z ties
+  if (playerWins > computerWins) {
+    console.log("You win the game!");
+  } else if (playerWins < computerWins) {
+    console.log("You lose the game!");
+  } else if (playerWins === computerWins) {
+    console.log("You tie the game!");
+  }
 
 }
 
