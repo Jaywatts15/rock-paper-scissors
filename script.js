@@ -29,6 +29,73 @@ let computerWins = 0
 // and returns a string that declares the winner of the round
 // Take player input and compare to computerSelection
 
+// Helper functions for easier readability of playRound function
+
+function playRock() {
+  switch (computerSelection) {
+    case "rock":
+      console.log("It's a Tie!");
+      ties = ties + 1
+      break;
+    case "paper":
+      console.log("You Lose! Paper beats Rock!");
+      losses = losses + 1
+      computerWins = computerWins + 1
+      break;
+    case "scissors":
+      console.log("You Win! Rock beats Scissors!");
+      wins = wins + 1
+      playerWins = playerWins + 1
+      break;
+    default:
+      console.log("Error. Try Again.");
+  }
+};
+
+function playPaper() {
+  switch (computerSelection) {
+    case "rock":
+      console.log("You Win! Paper beats Rock!");
+      wins = wins + 1
+      playerWins = playerWins + 1
+      break;
+    case "paper":
+      console.log("It's a Tie!");
+      ties = ties + 1
+      break;
+    case "scissors":
+      console.log("You Lose! Scissors beat Paper!");
+      losses = losses + 1
+      computerWins = computerWins + 1
+      break;
+    default:
+      console.log("Error. Try Again.");
+  }
+};
+
+function playScissors() {
+  switch (computerSelection) {
+    case "rock":
+      console.log("You Lose! Rock beats Scissors!");
+      losses = losses + 1
+      computerWins = computerWins + 1
+      break;
+    case "paper":
+      console.log("You Win! Scissors beat Paper!");
+      wins = wins + 1
+      playerWins = playerWins + 1
+      break;
+    case "scissors":
+      console.log("It's a Tie!");
+      ties = ties + 1
+      break;
+    default:
+      console.log("Error. Try Again.");
+  }
+};
+
+// Main Function
+
 function playRound() {
   computerPlay();
 
@@ -39,66 +106,15 @@ function playRound() {
   switch (playerSelection) {
     // If player chooses rock
     case "rock":
-      switch (computerSelection) {
-        case "rock":
-          console.log("It's a Tie!");
-          ties = ties + 1
-          break;
-        case "paper":
-          console.log("You Lose! Paper beats Rock!");
-          losses = losses + 1
-          computerWins = computerWins + 1
-          break;
-        case "scissors":
-          console.log("You Win! Rock beats Scissors!");
-          wins = wins + 1
-          playerWins = playerWins + 1
-          break;
-        default:
-          console.log("Error. Try Again.");
-      }
+      playRock();
       break;
       // If player chooses paper
     case "paper":
-      switch (computerSelection) {
-        case "rock":
-          console.log("You Win! Paper beats Rock!");
-          wins = wins + 1
-          playerWins = playerWins + 1
-          break;
-        case "paper":
-          console.log("It's a Tie!");
-          ties = ties + 1
-          break;
-        case "scissors":
-          console.log("You Lose! Scissors beat Paper!");
-          losses = losses + 1
-          computerWins = computerWins + 1
-          break;
-        default:
-          console.log("Error. Try Again.");
-      }
+      playPaper();
       break;
       // if player chooses scissors
     case "scissors":
-      switch (computerSelection) {
-        case "rock":
-          console.log("You Lose! Rock beats Scissors!");
-          losses = losses + 1
-          computerWins = computerWins + 1
-          break;
-        case "paper":
-          console.log("You Win! Scissors beat Paper!");
-          wins = wins + 1
-          playerWins = playerWins + 1
-          break;
-        case "scissors":
-          console.log("It's a Tie!");
-          ties = ties + 1
-          break;
-        default:
-          console.log("Error. Try Again.");
-      }
+      playScissors();
       break;
     default:
 
@@ -120,6 +136,6 @@ function game() {
     console.log("You tie the game!");
   }
 
-}
+};
 
 console.log(game());
