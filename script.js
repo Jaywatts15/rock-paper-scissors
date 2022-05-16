@@ -20,30 +20,54 @@ let playerSelection = playerInput.toLowerCase();
 // Take player input and compare to computerSelection
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === "rock") {
-    if (computerSelection === "paper") {
-      console.log("You Lose! Paper beats Rock!");
-    } else if (computerSelection === "scissors") {
-      console.log("You Win! Rock beats scissors!");
-    } else if (computerSelection === "rock") {
-      console.log("It's a tie!");
-    }
-  } else if (playerSelection === "paper") {
-    if (computerSelection === "scissors") {
-      console.log("You Lose! Scissors beats Paper!");
-    } else if (computerSelection === "rock") {
-      console.log("You Win! Paper beats Rock!");
-    } else if (computerSelection === "paper") {
-      console.log("It's a tie!");
-    }
-  } else if (playerSelection === "scissors") {
-    if (computerSelection === "rock") {
-      console.log("You Lose! Rock beats Scissors!");
-    } else if (computerSelection === "Paper") {
-      console.log("You Win! Scissors beats Paper!");
-    } else if (computerSelection === "scissors") {
-      console.log("It's a tie!");
-    }
+  switch (playerSelection) {
+    case "rock":
+      switch (computerSelection) {
+        case "rock":
+          console.log("It's a Tie!");
+          break;
+        case "paper":
+          console.log("You Lose! Paper beats Rock!");
+          break;
+        case "scissors":
+          console.log("You Win! Rock beats Scissors!");
+          break;
+        default:
+          console.log("Error. Try Again.");
+      }
+      break;
+    case "paper":
+      switch (computerSelection) {
+        case "rock":
+          console.log("You Win! Paper beats Rock!");
+          break;
+        case "paper":
+          console.log("It's a Tie!");
+          break;
+        case "scissors":
+          console.log("You Lose! Scissors beat Paper!");
+          break;
+        default:
+          console.log("Error. Try Again.");
+      }
+      break;
+    case "scissors":
+      switch (computerSelection) {
+        case "rock":
+          console.log("You Lose! Rock beats Scissors!");
+          break;
+        case "paper":
+          console.log("You Win! Scissors beat Paper!");
+          break;
+        case "scissors":
+          console.log("It's a Tie!");
+          break;
+        default:
+          console.log("Error. Try Again.");
+      }
+      break;
+    default:
+
   }
 };
 
