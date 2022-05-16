@@ -12,9 +12,14 @@ function computerPlay() {
 };
 
 
-// collects player input
+//  player input
 let playerInput = ""
 let playerSelection = ""
+
+// scorekeeping
+let wins = 0
+let losses = 0
+let ties = 0
 
 // Takes two parameters (playerSelection and computerSelection)
 // and returns a string that declares the winner of the round
@@ -22,8 +27,6 @@ let playerSelection = ""
 
 function playRound() {
   computerPlay();
-
-  console.log(computerSelection);
 
   playerInput = prompt("Rock, paper, or scissors?");
 
@@ -35,12 +38,15 @@ function playRound() {
       switch (computerSelection) {
         case "rock":
           console.log("It's a Tie!");
+          ties = ties + 1
           break;
         case "paper":
           console.log("You Lose! Paper beats Rock!");
+          losses = losses + 1
           break;
         case "scissors":
           console.log("You Win! Rock beats Scissors!");
+          wins = wins + 1
           break;
         default:
           console.log("Error. Try Again.");
@@ -51,12 +57,15 @@ function playRound() {
       switch (computerSelection) {
         case "rock":
           console.log("You Win! Paper beats Rock!");
+          wins = wins + 1
           break;
         case "paper":
           console.log("It's a Tie!");
+          ties = ties + 1
           break;
         case "scissors":
           console.log("You Lose! Scissors beat Paper!");
+          losses = losses + 1
           break;
         default:
           console.log("Error. Try Again.");
@@ -67,12 +76,15 @@ function playRound() {
       switch (computerSelection) {
         case "rock":
           console.log("You Lose! Rock beats Scissors!");
+          losses = losses + 1
           break;
         case "paper":
           console.log("You Win! Scissors beat Paper!");
+          wins = wins + 1
           break;
         case "scissors":
           console.log("It's a Tie!");
+          ties = ties + 1
           break;
         default:
           console.log("Error. Try Again.");
@@ -85,10 +97,16 @@ function playRound() {
 
 //  Function to play 5 rounds of the game
 
+
+
 function game() {
   for (let i = 0; i < 5; i++) {
-    playRound(window.playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection)
   }
+  console.log("Wins: " + wins);
+  console.log("Losses: " + losses);
+  console.log("Ties: " + ties);
+
 }
 
 console.log(game());
